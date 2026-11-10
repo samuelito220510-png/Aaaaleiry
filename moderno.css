@@ -1,0 +1,221 @@
+/* ===== Mención de Honor - Versión moderna ===== */
+
+:root {
+  --azul: #2fa9e0;
+  --azul-medio: #1677b8;
+  --azul-oscuro: #0b2e4f;
+  --dorado: #d4a23a;
+  --texto: #1c2733;
+  --gris: #5b6875;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e6edf3;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--texto);
+}
+
+/* Hoja tamaño carta horizontal */
+.certificado {
+  position: relative;
+  width: 11in;
+  height: 8.5in;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 2.6in 1fr;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Formas decorativas ===== */
+.forma {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Franja diagonal superior derecha */
+.forma-1 {
+  top: -1.4in;
+  right: -1.2in;
+  width: 3.6in;
+  height: 3.6in;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 100%);
+  opacity: 0.12;
+}
+
+/* Anillo dorado */
+.forma-2 {
+  bottom: -0.9in;
+  right: 0.6in;
+  width: 2.2in;
+  height: 2.2in;
+  border-radius: 50%;
+  border: 10px solid var(--dorado);
+  opacity: 0.25;
+}
+
+/* Línea de acento inferior */
+.forma-3 {
+  left: 2.6in;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--azul) 0%, var(--azul-medio) 60%, var(--dorado) 100%);
+}
+
+/* ===== Panel izquierdo ===== */
+.panel {
+  position: relative;
+  background: linear-gradient(165deg, var(--azul) 0%, var(--azul-medio) 45%, var(--azul-oscuro) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.55in;
+  gap: 0.4in;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.tarjeta-escudo {
+  background: #ffffff;
+  border-radius: 50%;
+  width: 1.85in;
+  height: 1.85in;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  margin-right: 0.2in;
+}
+
+.escudo {
+  width: 1.3in;
+  height: auto;
+}
+
+.medalla {
+  height: 2.1in;
+  width: auto;
+  margin-right: 0.2in;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+}
+
+/* ===== Contenido ===== */
+.contenido {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.5in 0.7in 0.55in 0.4in;
+}
+
+.etiqueta {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 44px;
+  color: var(--dorado);
+  line-height: 1;
+}
+
+.instituto {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: var(--gris);
+  line-height: 1.4;
+}
+
+.instituto span {
+  display: block;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: var(--azul-oscuro);
+}
+
+.felicitaciones {
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--gris);
+}
+
+.titulo-grande {
+  font-weight: 900;
+  font-size: 42px;
+  letter-spacing: 4px;
+  color: var(--azul-oscuro);
+  line-height: 1.1;
+}
+
+.titulo-grande.destacado {
+  background: linear-gradient(90deg, var(--azul) 0%, var(--azul-medio) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Espacio para escribir el nombre con lapicero */
+.espacio-nombre {
+  width: 92%;
+  height: 0.85in;
+  background: #f4f9fd;
+  border-radius: 14px;
+  border-bottom: 4px solid var(--azul);
+}
+
+.mensaje {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 6in;
+  color: var(--texto);
+}
+
+.bendicion {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: 6px;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--dorado) 0%, #e8bd5a 100%);
+  padding: 8px 28px;
+  border-radius: 999px;
+}
+
+/* ===== Impresión ===== */
+@page {
+  size: letter landscape;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: none;
+    padding: 0;
+    display: block;
+    min-height: 0;
+  }
+  .certificado {
+    box-shadow: none;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
