@@ -1,0 +1,201 @@
+/* ===== Mención de Honor - Instituto Técnico Futuro Profesional ===== */
+
+:root {
+  --azul: #2fa9e0;          /* azul celeste del escudo */
+  --azul-oscuro: #0d4f7c;
+  --dorado: #b8862b;
+  --dorado-claro: #e2c178;
+  --texto: #1f2a36;
+  --papel: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #d9e4ec;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: "Lora", Georgia, serif;
+  color: var(--texto);
+}
+
+/* Hoja tamaño carta horizontal */
+.certificado {
+  position: relative;
+  width: 11in;
+  height: 8.5in;
+  background: var(--papel);
+  display: grid;
+  grid-template-columns: 2.1in 1fr 2.1in;
+  padding: 0.55in 0.6in;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+/* Marco doble: azul exterior, dorado interior */
+.certificado::before,
+.certificado::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.certificado::before {
+  inset: 0.2in;
+  border: 6px solid var(--azul);
+  outline: 2px solid var(--azul-oscuro);
+  outline-offset: 4px;
+}
+
+.certificado::after {
+  inset: 0.38in;
+  border: 2px solid var(--dorado);
+}
+
+/* Esquinas ornamentales */
+.esquina {
+  position: absolute;
+  width: 0.75in;
+  height: 0.75in;
+  border: 4px solid var(--dorado);
+  z-index: 1;
+}
+.esquina::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--dorado);
+  transform: rotate(45deg);
+}
+.sup-izq { top: 0.45in; left: 0.45in; border-right: 0; border-bottom: 0; }
+.sup-der { top: 0.45in; right: 0.45in; border-left: 0; border-bottom: 0; }
+.inf-izq { bottom: 0.45in; left: 0.45in; border-right: 0; border-top: 0; }
+.inf-der { bottom: 0.45in; right: 0.45in; border-left: 0; border-top: 0; }
+.sup-izq::after { top: 8px; left: 8px; }
+.sup-der::after { top: 8px; right: 8px; }
+.inf-izq::after { bottom: 8px; left: 8px; }
+.inf-der::after { bottom: 8px; right: 8px; }
+
+/* ===== Columna izquierda ===== */
+.columna-izq {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15in;
+  padding-top: 0.15in;
+}
+
+.escudo {
+  width: 1.85in;
+  height: auto;
+  mix-blend-mode: multiply; /* el fondo blanco del escudo se funde con el papel */
+}
+
+.medalla {
+  height: 2.6in;
+  width: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* ===== Contenido central ===== */
+.contenido {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.2in 0 0.15in;
+}
+
+.etiqueta {
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  color: var(--dorado);
+  line-height: 1;
+}
+
+.instituto {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  color: var(--azul-oscuro);
+}
+
+.felicitaciones {
+  font-style: italic;
+  font-size: 18px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+
+.titulo-grande {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: 40px;
+  letter-spacing: 3px;
+  color: var(--azul-oscuro);
+  line-height: 1.1;
+}
+
+.titulo-grande.destacado {
+  color: var(--azul);
+  text-shadow: 1px 1px 0 var(--azul-oscuro);
+}
+
+/* Recuadro en blanco para escribir el nombre con lapicero */
+.espacio-nombre {
+  width: 100%;
+  height: 0.85in;
+  background: #ffffff;
+  border: 2px solid var(--dorado);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 4px #fff, inset 0 0 0 5px var(--dorado-claro);
+}
+
+.mensaje {
+  font-size: 16px;
+  line-height: 1.45;
+  max-width: 5in;
+}
+
+.bendicion {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 4px;
+  color: var(--dorado);
+}
+
+/* ===== Impresión ===== */
+@page {
+  size: letter landscape;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: none;
+    padding: 0;
+    display: block;
+    min-height: 0;
+  }
+  .certificado {
+    box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
