@@ -33,7 +33,7 @@ body {
   height: 8.5in;
   background: var(--papel);
   display: grid;
-  grid-template-columns: 2.1in 1fr 2.1in;
+  grid-template-columns: 1.8in 1fr 1.8in;
   padding: 0.55in 0.6in;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   overflow: hidden;
@@ -96,13 +96,13 @@ body {
 }
 
 .escudo {
-  width: 1.85in;
+  width: 1.5in;
   height: auto;
   mix-blend-mode: multiply; /* el fondo blanco del escudo se funde con el papel */
 }
 
 .medalla {
-  height: 2.6in;
+  height: 2.1in;
   width: auto;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
 }
@@ -121,7 +121,7 @@ body {
 
 .etiqueta {
   font-family: "Great Vibes", cursive;
-  font-size: 30px;
+  font-size: 46px;
   color: var(--dorado);
   line-height: 1;
 }
@@ -137,7 +137,7 @@ body {
 
 .felicitaciones {
   font-style: italic;
-  font-size: 18px;
+  font-size: 21px;
   color: var(--texto);
   white-space: nowrap;
 }
@@ -167,15 +167,15 @@ body {
 }
 
 .mensaje {
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.45;
-  max-width: 5in;
+  max-width: 5.8in;
 }
 
 .bendicion {
   font-family: "Cinzel", "Times New Roman", serif;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 28px;
   letter-spacing: 4px;
   color: var(--dorado);
 }
